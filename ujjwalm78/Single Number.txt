@@ -1,0 +1,25 @@
+class Solution {
+    public int singleNumber(int[] nums) {
+        int flag=0,count=0,i=0,k=0;
+        Arrays.sort(nums);
+        for(i=0;i<(nums.length-1);i++){
+            if(nums[i]==nums[i+1]){
+                count++;
+            }
+            else{
+                if(count==0)
+                {
+                    flag=1;
+                        break;
+                }
+                else
+                    count=0;
+            }
+        }
+        if(flag==1)
+            k=nums[i];
+        if(flag==0)
+            k=nums[i];
+        return k;
+    }
+}
