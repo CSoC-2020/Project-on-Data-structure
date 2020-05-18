@@ -1,0 +1,34 @@
+class Solution {
+   public void swap(int nums[],int a, int b)
+{
+     nums[a] = nums[a]+nums[b];
+     nums[b] = nums[a]-nums[b];
+    nums[a]=nums[a]-nums[b];
+}
+    public void reverse(int nums[]){
+        int n=nums.length;
+        int j=n-1;
+        for(int i=0;i<n/2;i++){
+            swap(nums,i,j);
+            j--;
+        }
+    }
+    public void rotate(int[] nums, int k) {
+        int n=nums.length;
+         int x=k%n;
+        if(n>1){
+        int j=x-1;
+        reverse(nums);
+       for(int i=0;i<x/2;i++){
+            swap(nums,i,j);
+            j--;
+        }
+        j=n-1;
+        for(int i=x;i<(n+x)/2;i++){
+            swap(nums,i,j);
+            j--;
+        }
+        
+    }
+    }
+}
