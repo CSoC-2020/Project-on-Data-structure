@@ -1,12 +1,14 @@
+#include<bits/stdc++.h>
+using namespace std;
 class Solution {
 public:
     void rotate(vector<vector<int>>& matrix) {
         
     int n=matrix.size();
-for(int i=0;i<matrix.size()/2;i++)
+for(int i=0;i<n/2;i++)
 {
 int x;
-for(int j=0;j<matrix.size()-2*i-1;j++)
+for(int j=0;j<n-2*i-1;j++)
 {
 x=matrix[i+j][n-i-1];
 matrix[i+j][n-i-1]=matrix[i][i+j];
