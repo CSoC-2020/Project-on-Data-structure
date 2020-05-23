@@ -1,0 +1,19 @@
+class Solution {
+public:
+    bool isHappy(int n) {
+        set<int> abc;        
+        int sum = 0;
+        while(n != 1){
+            abc.insert(n);
+            sum = 0;
+            while(n != 0){
+                sum += ((n % 10) * (n % 10));
+                n = n / 10;
+            }
+            if(abc.find(sum) != abc.end())
+                return false;
+            n = sum;
+        }
+        return true;
+    }
+};
