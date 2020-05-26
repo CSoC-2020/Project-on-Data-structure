@@ -1,0 +1,25 @@
+class Solution {
+public void swap(int nums[],int a, int b)
+{
+     nums[a] = nums[a]+nums[b];
+     nums[b] = nums[a]-nums[b];
+    nums[a]=nums[a]-nums[b];
+}
+    public void rotate(int[][] matrix) {
+        for(int i=0;i<matrix.length;i++){
+            for(int j=0;j<i;j++){
+                int temp=matrix[i][j];
+                matrix[i][j]=matrix[j][i];
+                matrix[j][i]=temp;
+            }
+        }
+        int k=matrix.length-1;
+        for(int i=0;i<matrix.length;i++){
+            for(int j=0;j<matrix.length/2;j++){
+                swap(matrix[i],j,k);
+                k--;
+            }
+            k=matrix.length-1;
+        }
+    }
+}
