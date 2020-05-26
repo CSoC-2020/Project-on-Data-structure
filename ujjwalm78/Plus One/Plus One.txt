@@ -1,0 +1,29 @@
+class Solution {
+    public int[] plusOne(int[] digits) {
+        int n=digits.length;
+        int carry=1;
+        int x=0;
+        if(digits[n-1]!=9){
+        digits[n-1]=digits[n-1]+1;
+        return digits;
+        }
+        int arr[]=new int[n+1];
+       for(int i=n-1;i>=0;i--){
+                x=digits[i]+carry;
+                digits[i]=x%10;
+                carry=x/10;
+                }
+        if(carry==0){
+            return digits;
+        }
+        if(carry==1){
+            int j=0;
+            arr[0]=carry;
+            for(int i=1;i<arr.length;i++){
+                arr[i]=digits[j];
+                j++;
+                }
+}
+      return arr;     
+    }
+}
