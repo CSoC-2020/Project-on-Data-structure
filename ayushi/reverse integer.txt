@@ -1,0 +1,20 @@
+class Solution 
+{
+public:
+    long long rev=0;
+    int reverse(int x)
+    {
+        while(x>0)
+        {
+        int rem=x%10;
+        rev=rem+rev*10;
+        x/=10;
+        }
+        
+    }
+   if(rev<-2147483648 || rev> 2147483647)
+       return 0;
+    
+    else
+        return (int)rev;
+};
