@@ -1,28 +1,26 @@
 class Solution {
 public:
-    string generateNext(string str){
-    int count=0,i=0;
-    string result="";
-    while(str[i]){
-        count=1;
-        while(str[i]==str[i+1]){
-            count++;
-            i++;
+    string AnotherFunction(string s)
+    {
+        string res="";
+        if(s==""){res="1";}
+        else{
+        int i=0,count=0,index=0;
+        while(i<s.size())
+        {
+            if(s[i]==s[index])  {count++;i++;}
+            else {res.push_back(count+48);res.push_back(s[index]);index=i;/*i++;*/count=0;}
         }
-        result.push_back(count+'0');
-        result.push_back(str[i]);
-        i++;
+        if(i>0) {res.push_back(count+48);res.push_back(s[index]);}
+        }
+        return res;
     }
-    cout<<result<<endl;
-    return result;
-}
-string countAndSay(int n) {
-    string result="1";
-    string def="1";
-    if(n==1)
-        return def;
-    for(int i=1;i<n;i++)
-        result=generateNext(result);
-    return result;
-}
+    string countAndSay(int n) {
+        string s="";
+        for(int i=0;i<n;i++)
+        {
+            s=AnotherFunction(s);
+        }
+        return s;
+    }
 };
