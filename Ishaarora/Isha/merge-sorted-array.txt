@@ -1,0 +1,32 @@
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        vector<int> arr(nums1);
+        int i=0;int j=0;
+        nums1.clear();
+        while(i<m && j<n)
+        {
+            if(arr[i]<=nums2[j])
+            {
+                nums1.push_back(arr[i]);
+                i++;
+            }
+            else
+            {
+                nums1.push_back(nums2[j]);
+                j++;
+            }
+        }
+        while(i<m)
+        {
+            nums1.push_back(arr[i]);
+            i++;
+        }
+        while(j<n)
+        {
+            nums1.push_back(nums2[j]);
+            j++;
+        }
+        
+    }
+};
