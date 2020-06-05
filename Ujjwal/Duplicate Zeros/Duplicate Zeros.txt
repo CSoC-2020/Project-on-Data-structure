@@ -1,0 +1,24 @@
+class Solution {
+    public void duplicateZeros(int[] arr) {
+        int n=arr.length;
+        if(n==1 && arr[n-1]==0) return;
+        int i=0,j=0,temp=0;
+        while(i<n-1){
+            if(arr[i]==0){
+                temp=arr[i+1];
+                arr[i+1]=0;
+                j=i+2;
+                i=j;
+                while(j<n){
+                    int temp1=arr[j];
+                    arr[j]=temp;
+                    temp=temp1;
+                    j++;
+                }
+            }
+            else{
+                i++;
+            }
+        }
+    }
+}

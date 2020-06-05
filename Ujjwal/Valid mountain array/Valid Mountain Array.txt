@@ -1,0 +1,23 @@
+class Solution {
+    public boolean validMountainArray(int[] A) {
+        if(A.length<3) return false;
+        if(A[0]>=A[1]) return false;
+        int flag=0,k=0;
+        for(int i=0;i<A.length-1;i++){
+            if(A[i]>=A[i+1]){
+                k=i;
+                flag=0;
+                break;
+            }
+            else
+                flag=1;
+        }
+        if(flag==1)
+            return false;
+        for(int i=k;i<A.length-1;i++){
+            if(A[i]<=A[i+1])
+                return false;
+        }
+       return true; 
+    }
+}
