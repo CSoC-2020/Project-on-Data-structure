@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> intersect(vector<int>& num1, vector<int>& num2) {
+        vector<int> num3;
+        sort(num1.begin(),num1.end());
+        sort(num2.begin(),num2.end());
+        for(int i=0 ,j=0  ;i<num1.size() &&  j<num2.size(); )
+        {
+            if(num1[i]==num2[j])
+            {
+                num3.push_back(num1[i]);
+                i++;
+                j++;
+            }
+            else if(num1[i]<num2[j])
+                i++;
+            else
+                j++;
+        }
+        return num3;
+    }
+};
+
+
