@@ -1,0 +1,19 @@
+class Solution {
+    public int[] replaceElements(int[] arr) {
+        int max_index=0;
+        int k=0;
+        int n=0;
+        while(k<arr.length-1){
+        for(int i=k+1;i<arr.length;i++){
+            if(arr[i]>arr[max_index]) max_index=i;
+        }
+        for(int j=k;j<=max_index;j++){
+            arr[j]=arr[max_index];
+        }
+            k=max_index;
+            max_index=max_index+1;
+    }
+        arr[arr.length-1]=-1;
+        return arr;
+    }
+}
