@@ -1,0 +1,38 @@
+ int val(char t)
+{
+    int x;
+if(t=='I')
+  x=1;
+if(t=='V')
+  x=5;
+if(t=='X')
+  x=10;
+if(t=='L')
+  x=50;
+if(t=='C')
+  x=100;
+if(t=='D')
+  x=500;
+if(t=='M')
+  x=1000;
+return x;
+}
+    
+
+class Solution {
+public:
+    int romanToInt(string s) {
+        int nums=0;
+        for(int i=0;i<s.size()-1;i++)
+        {
+            if(val(s[i+1])>val(s[i]))
+            {
+                nums-=val(s[i]);
+            }
+            else
+                nums+=val(s[i]);
+        }
+        nums+=val(s[s.size()-1]);
+        return nums;
+    } 
+}; 
