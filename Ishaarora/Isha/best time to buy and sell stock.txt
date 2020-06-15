@@ -1,0 +1,27 @@
+class Solution 
+{
+public:
+    int maxProfit(vector<int>& prices) 
+    {
+        if(prices.size()==0)
+        return 0;
+        else{
+        int l =0;
+        int n = prices[prices.size()-1];
+        int r = prices.size()-2;
+        int sum {0};
+        while(l<=r)
+        {
+            if(n-prices[r]>sum)
+            {
+                sum = n-prices[r];
+            }
+            if(prices[r]>n)
+                n = prices[r];
+            r--;
+        }
+        return sum;
+        }
+    }
+};
+    

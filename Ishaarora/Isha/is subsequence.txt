@@ -1,0 +1,13 @@
+class Solution {
+public:
+    bool isSubsequence(string s, string t) { int i;
+      int index=0;
+        int count=0;
+        for(i=0;i<t.size();i++)
+        {
+            if(s[index]==t[i])count++,index++;
+            if(count==s.size())return true;
+        }
+        return count==s.size();
+    }
+};
