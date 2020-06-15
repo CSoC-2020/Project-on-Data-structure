@@ -1,0 +1,21 @@
+class Solution {
+    public int[] finalPrices(int[] prices) {
+        int n=prices.length;
+        if(n==1) return prices;
+        int flag=0;
+        for(int i=0;i<n-1;i++){
+            for(int j=i+1;j<n;j++){
+                if(prices[i]>=prices[j]){
+                    prices[i]=prices[i]-prices[j];
+                    flag=1;
+                    break;
+                }
+                if(flag==0)
+                    continue;
+                else
+                    flag=0;
+            }
+        }
+        return prices;
+    }
+}
