@@ -1,0 +1,18 @@
+class Solution {
+    public boolean checkRecord(String s) {
+        if(s.indexOf("LLL") != -1){
+            return false;
+        }
+        int n = s.length();
+        int count = 0;
+        for(int i = 0; i < n; i++) {
+            if(s.charAt(i) == 'A') {
+                count++;
+                if(count > 1) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
