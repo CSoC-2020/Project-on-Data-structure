@@ -1,0 +1,21 @@
+class Solution {
+    public int thirdMax(int[] nums) {
+        int max=Integer.MIN_VALUE;
+        int flag=0;
+        int max2=0;
+        int max3=Integer.MIN_VALUE;
+        for(int i=0;i<nums.length;i++)
+            if(nums[i]>max) max=nums[i];
+        for(int i=0;i<nums.length;i++)
+            if(nums[i]>max2 && nums[i]<max) max2=nums[i];
+        for(int i=0;i<nums.length;i++)
+            if(max2==nums[i]) flag=1;
+        if(flag==0) return max;
+         for(int i=0;i<nums.length;i++)
+            if(nums[i]<max2 && nums[i]<max && nums[i]>max3) max3=nums[i];
+        for(int i=0;i<nums.length;i++)
+            if(max3==nums[i])
+                return max3;
+        return max;
+    }
+}
