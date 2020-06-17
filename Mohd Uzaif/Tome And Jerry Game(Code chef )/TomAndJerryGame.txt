@@ -1,0 +1,20 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{	ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int testcases;
+    cin>>testcases;
+    for (int tc = 0; tc < testcases; ++tc)
+    {
+        long long int ts;
+        cin>>ts;
+        while(ts%2 == 0)
+        {
+            ts /=2;
+        }
+        long long int ans = (ts-1)/2;
+        cout<<ans<<"\n";
+    }
+	return 0;
+}
