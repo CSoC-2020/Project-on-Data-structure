@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int coinChange(vector<int>& coins, int amount) {
+         int n = coins.size();
+        if (n == 0) return -1;
+        if (n == 1 && amount%coins[0] != 0) return -1;
+        
+        vector<int> count(amount+1, amount+1);
+        
+        count[0] = 0;
+        for (int i = 1; i <= amount; i++) {
+            for (int j = 0; j < n; j++) {
+                if (coins[j] > i) continue;
+                count[i] = min(count[i], count[i-coins[j]] + 1);
+            } 
+        }
+       
+        return (count[amount] > amount)? -1:count[amount];
+    }
+};

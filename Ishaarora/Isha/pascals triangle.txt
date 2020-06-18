@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<vector<int>> generate(int numRows) {
+        vector<vector<int>> p; int i,j;
+     if(numRows == 0)
+        return p;
+    for(i=0; i<numRows; i++)
+    { vector<int> t;
+        for(j=0; j<=i; j++)
+        {
+            if(j == 0 || j == i)
+            t.push_back(1);
+            else
+            t.push_back(p[i-1][j-1]+ p[i-1][j] );
+        }
+        p.push_back(t);
+    }         
+    return p;
+}
+};

@@ -1,0 +1,54 @@
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    { int n,five=0,ten=0,fif=0;
+        bool flag=true;
+        cin>>n;
+        int a[n];
+        for(int i=0;i<n;i++)
+            cin>>a[i];
+        for(int i=0;i<n;i++)
+        {   if(a[i]==5)
+                five++;
+            else if (a[i]==10)
+            {
+                if(five==0)
+                    {
+                        cout<<"NO"<<endl;
+                        flag=false;
+                        break;
+                    }
+                else
+                    {
+                        ten++;
+                        five--;
+                    }
+            }
+            else
+            {
+                if(ten==0 && five<2)
+                {
+                    cout<<"NO"<<endl;
+                    flag=false;
+                    break;
+                }
+                else if(five>=2)
+                {
+                    five-=2;
+                    fif++;
+                }
+                else
+                {
+                    ten--;
+                    fif++;
+                }
+            }
+        }
+        if(flag)
+            cout<<"YES"<<endl;
+    }
+    return 0;
+}
