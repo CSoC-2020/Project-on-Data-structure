@@ -1,0 +1,5 @@
+class Solution {
+    public boolean divisorGame(int N) {
+        return (N & 1) == 0;
+    }
+}
