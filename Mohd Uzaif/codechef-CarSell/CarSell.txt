@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+	int t;
+    cin>>t;
+    while(t--) {    
+        int n;
+        cin>>n;
+        vector<long long> A(n);
+        for(int i=0;i<n;i++) {
+            cin>>A[i];
+        }
+        // int mod = 1e9+7;
+        long long profit = 0;
+        sort(A.rbegin(),A.rend());
+        // reverse(A,A+n);
+        for(int i=0;i<n;i++) {
+            long long sol = (A[i]-i);
+            if( sol > 0 ) {
+                profit = (profit+sol)%1000000007;
+            }
+            else 
+                break;
+        }
+        cout<<profit<<"\n";
+    }
+    return 0;
+}
