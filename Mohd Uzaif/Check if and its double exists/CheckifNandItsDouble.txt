@@ -1,0 +1,13 @@
+class Solution {
+public:
+    bool checkIfExist(vector<int>& arr) {
+        unordered_set<int> m;
+        for (auto n : arr)
+        {
+            if (m.count(n) || m.count(4 * n))
+                return true;
+            m.insert(2 * n);
+        }
+        return false;
+    }
+};

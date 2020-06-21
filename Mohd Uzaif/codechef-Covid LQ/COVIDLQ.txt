@@ -1,0 +1,38 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    for (int i=0;i<t;i++)
+    {
+        int n,last=-1;
+        bool ans=1;
+        cin>>n;
+        int *a=new int[n];
+        for (int j=0;j<n;j++)
+        {
+            cin>>a[j];
+        }
+        for (int j=0;j<n;j++)
+        {
+            if (a[j]==1)
+            {
+               if (last!=-1)
+               {
+                   if (j-last<6)
+                   {
+                       cout<<"NO\n";
+                       break;
+                   }
+               }
+               last=j; 
+            }
+            if (j==n-1)
+            {
+                cout<<"YES\n";
+            }
+        }
+    }
+    return 0;
+}
