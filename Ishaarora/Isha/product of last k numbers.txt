@@ -1,0 +1,32 @@
+class ProductOfNumbers {
+public:
+    vector<int> data;
+    int mul=1;
+    int latestZero=-1;
+    ProductOfNumbers() {
+        
+    }
+    
+    void add(int num) {
+        if(num!=0){
+            data.push_back(mul*num);
+            mul*=num;    
+        }
+        else{
+            mul=1;
+            data.push_back(mul);
+            latestZero=data.size()-1;
+        }
+    }
+    
+    int getProduct(int k) {
+        int start=data.size()-k; 
+        if(latestZero<start){
+            if(start-1>=0)
+                return data[data.size()-1]/data[start-1];
+            return data[data.size()-1];
+        }
+        else
+            return 0;
+    }
+};

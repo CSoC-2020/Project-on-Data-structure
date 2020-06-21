@@ -1,0 +1,66 @@
+ class MyLinkedList {
+struct Node {
+  int val;
+  Node* next = nullptr;
+  Node* prev = nullptr;
+  Node() {}
+  Node(int val) : val{val} {}
+};
+private:
+  Node* head_ = new Node(0);
+  Node* tail_ = new Node(0);
+  size_t size_ = 0;
+public:
+  MyLinkedList() {
+    head_->next = tail_;
+    tail_->prev = head_;
+  }
+  ~MyLinkedList() {
+    auto itr = head_;
+    while(itr){
+      auto buf = itr->next;
+      delete itr;
+      itr = buf;
+    }
+  }
+
+  int get(int index) {
+    if(index >= size_) return -1;
+    if(index < 0 ) return -1;
+    auto itr = head_->next;
+    for(int i=0; i<index; ++i) itr = itr->next;
+    return itr->val;
+  }
+
+  void addAtHead(int val) {
+    addAtIndex(0, val);
+  }
+
+  void addAtTail(int val) {
+    addAtIndex(size_, val);
+  }
+
+  void addAtIndex(int index, int val) {
+    if(index > size_) return;
+ if(index < 0 ) return;
+    Node* insertNode = new Node(val);
+    auto itr = head_->next;
+    for(int i=0; i<index; ++i) itr = itr->next;
+    insertNode->prev = itr->prev;
+    insertNode->next = itr;
+    itr->prev->next = insertNode;
+    itr->prev = insertNode;
+    size_++;
+  }
+
+  void deleteAtIndex(int index) {
+    if(index >= size_) return;
+    if(index < 0 ) return;
+    auto itr = head_->next;
+    for(int i=0; i<index; ++i) itr = itr->next;
+    itr->prev->next = itr->next;
+    itr->next->prev = itr->prev;
+    size_--;
+    delete itr;
+  }
+};

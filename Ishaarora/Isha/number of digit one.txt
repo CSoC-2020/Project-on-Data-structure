@@ -1,0 +1,11 @@
+class Solution {
+public:
+    int countDigitOne(int n) {
+        long long int i,div,c=0;
+        for(i=1;i<=n;i*=10){
+            div=i*10;
+            c+= (n/div)*i+min((int)max((int)(n%div-i+1),(int)0),(int)i);
+        }
+        return c;
+    }
+};
