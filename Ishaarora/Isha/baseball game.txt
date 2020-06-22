@@ -1,0 +1,31 @@
+class Solution {
+public:
+    int calPoints(vector<string>& ops) {
+        stack<int> sGame;
+        for (int i = 0; i < ops.size(); i++) {
+            if (ops[i] == "C") {
+                sGame.pop();
+            }
+            else if (ops[i] == "D") {
+                sGame.push(2 * sGame.top());
+            }
+            else if (ops[i] == "+") {
+                int top = sGame.top();
+                sGame.pop();
+                int newtop = top + sGame.top();
+                sGame.push(top);
+                sGame.push(newtop);
+            }
+            else {
+                sGame.push(stoi(ops[i]));
+            }
+        }
+        
+        int points = 0;
+        while (!sGame.empty()) {
+            points += sGame.top();
+            sGame.pop();
+        }
+        return points;
+    }
+};
