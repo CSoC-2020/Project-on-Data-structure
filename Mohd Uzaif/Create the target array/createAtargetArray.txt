@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<int> createTargetArray(vector<int>& nums, vector<int>& index) {
+        int n=nums.size();
+        if(n==0)
+            return {};
+        vector<bool> vis(n,false);
+        vis[0]=true;
+        for(int i=1;i<index.size();++i){
+            if(vis[index[i]]==true){
+                for(int j=0;j<i;++j){
+                    if(index[j]>=index[i]){
+                        index[j]++;
+                        vis[index[j]]=true;
+                    }
+                }
+            }
+            else{
+                vis[index[i]]=true;
+            }
+        }
+        vector<int> ans(n);
+        for(int i=0;i<n;++i){
+            ans[index[i]]=nums[i];
+        }
+        return ans;
+    }
+};
