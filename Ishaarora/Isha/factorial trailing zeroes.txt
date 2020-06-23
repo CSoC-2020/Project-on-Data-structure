@@ -1,0 +1,8 @@
+class Solution {
+public:
+    int trailingZeroes(int n) {
+      int s=0;		
+	for (long long int  i = 5 ; n / i >= 1 ;  i = i * 5 )
+		s+=n/i; 
+        return s;
+}};
